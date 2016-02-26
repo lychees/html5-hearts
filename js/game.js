@@ -94,7 +94,7 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
         next: function(){
             console.log(status, "next");
             if (status == 'confirming'){
-                currentPlay = board.cards[26].parent.playedBy.id;
+                currentPlay = 0; //board.cards[26].parent.playedBy.id;
                 played = 0;
             } else if (status == 'playing'){
                 currentPlay = (currentPlay + 1) % 4;

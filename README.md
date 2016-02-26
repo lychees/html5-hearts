@@ -1,18 +1,43 @@
-# Hearts with HTML5
+# Kingdom with HTML5
 
-You can try the game at http://hearts.yjyao.com/
 
-# AI
+Reiner Knizia's Kingdoms is played as a series of tile placements. You will place a tile each turn until the grid is full. A game lasts for three rounds of play.
 
-The `Ai.js` class can use various `Brains` to make decision.
+https://boardgamegeek.com/boardgame/119/kingdoms
+http://islaythedragon.com/game-reviews/wait-is-that-a-dragon-a-review-of-kingdoms/
+https://www.rpg.net/reviews/archive/9/9518.phtml
 
-* `Brain.js`: Base class for all brains
-* `AsyncBrain.js`: A wrapper to call the more time-consuming brains via web-worker
-* `SimpleBrain.js`: Simple greedy heuristics
-* `McBrain.js`: One-step look-ahead with sample generation and deterministic rollouts based on the assumption that all players use the simple greedy strategy
-* `PomDPBrain.js`: assuming all other players to be playing using the greedy strategy, the game can then be formulated as a [POMDP](http://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process) and can thus be solved with the [POMCP Algorithm](http://machinelearning.wustl.edu/mlpapers/paper_files/NIPS2010_0740.pdf). This `brain` implements the POMCP algorithm.
+
+
+You can try the game at:
+
+# 布局描述。
+
+资源卡(Resources Tile, Hazards Tile)：第一个字符位 +- 表示正分还是负分，后一个字符位表示系数。
+城堡卡(Castles Tile)：第一个字符位 ABCD 表示所属的玩家，后一个字符位 1234 表示城堡的等级。
+山脉(Mountain Tile)：#。
+赤龙(Dragon Tile): D。
+
+
+var Game = {
+	Names: ['A','B','C','D'],
+	Scores: [0,0,0,0],
+	Rounds: 1,
+	whosTurn: 0,		
+	Board: [
+		['','','','','',''],
+		['','','','','',''],
+		['','','','','',''],
+		['','','','','',''],
+		['','','','','','']
+	],
+	Arrangement: {
+		A: ['1','1','2','2','2','3','3','4','+4'],
+		B: ['1','1','2','2','2','3','3','4','+4'],
+		C: ['1','1','2','2','2','3','3','4','+4'],
+		D: ['1','1','2','2','2','3','3','4','+4']
+	},
+	Heap: ['+1','+1']
+};
 
 # TODO
-
-1. Port `McBrain` and `PomDPBrain` to `C++`, which can be compiled to `asm.js` for better performance
-1. Multi-player support

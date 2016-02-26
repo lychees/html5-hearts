@@ -125,15 +125,21 @@ define(function(){
         createPlayerDisplay: function(id, name){
             return new PlayerDisplay(id, name);
         },
+
+        createCardDisplay2: function(ch){
+
+        },
+
+
         createCardDisplay: function(numtext, suit){
             if(!frag){
                 frag = document.createDocumentFragment();
             }
             var display = document.createElement('div');
-            display.className = 'card flipped';
-            $(display).css({
+            display.className = 'card';
+            /*$(display).css({
                 transform: 'rotateY(180deg)'
-            });
+            });*/
 
             var numText = document.createElement('div');
             numText.className = 'num';
@@ -141,13 +147,20 @@ define(function(){
 
             front = document.createElement('div');
             front.className = 'front';
+
             front.appendChild(numText);
             display.classList.add(suits[suit]);
 
-            var icon = document.createElement('div');
-            icon.className = 'icon';
-            front.appendChild(icon);
+/*
+            var lv = document.createElement('div');
+            lv.className = 'lv';
+            for (var i=0;i<4;++i){
+                var t = document.createElement('img');
+                t.src = "img/club.png";
+                lv.appendChild(t);
+            }
 
+            front.appendChild(lv);*/
             display.appendChild(front);
 
             back = document.createElement('div');

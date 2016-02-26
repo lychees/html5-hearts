@@ -5,21 +5,32 @@ function(domBinding){
     var suits = ['spade', 'heart', 'club', 'diamond'];
 
     var Card = function(id){
-        this.id = id;
-        this.num = id % 13 + 1;
-        this.suit = id % 4;
+
+        if (id[0] == '+'){
+            this.suit = 1;
+            this.num = id;
+        }
+        else if (id[0] == '-'){
+            this.suit = 0;
+            this.num = id;
+        }
+
+
+//        this.id = id;
+  //      this.num = id % 13 + 1;
+    //    this.suit = id % 4;
         this.flipped = true;
 
-        var acutualNum = this.num + 1;
+        var acutualNum = this.num;
         var numtext = acutualNum + '';
-        if(acutualNum > 10){
+        /*if(acutualNum > 10){
             numtext = ({
                 11: 'J',
                 12: 'Q',
                 13: 'K',
                 14: 'A'
             })[acutualNum];
-        }
+        }*/
         this.display = domBinding.createCardDisplay(numtext, this.suit);
         this.display.onClick = this.shift.bind(this);
      };

@@ -1,15 +1,19 @@
 define(["Card", "jquery", "layout"],
 function(Card,  $,         layout){
+
     var cards = [];
 
-    for(var i = 0; i < 52; i++){
-        cards.push(new Card(i));
+    for(var i = 1; i <= 6; i++){
+        cards.push(new Card('+'+i));
+        cards.push(new Card('+'+i));
+        cards.push(new Card('-'+i));
     }
-
+    
     var carddeck = [];
-    for(i = 0; i < 52; i++) {
+    for(i = 0; i < cards.length; i++) {
         carddeck.push(i);
     }
+
     return {
         cards: cards,
         init: function(){
@@ -22,16 +26,16 @@ function(Card,  $,         layout){
             });
         },
         shuffleDeck: function(){
-            var i;
+            var n = cards.length, i;
             
-            for(i = 0; i < 52; i++){
-                var ran = Math.floor(Math.random() * (52 - i));
+            for(i = 0; i < n; i++){
+                var ran = Math.floor(Math.random() * (n - i));
                 var tmp = carddeck[ran];
-                carddeck[ran] = carddeck[51-i];
-                carddeck[51 - i] = tmp;
+                carddeck[ran] = carddeck[n-1-i];
+                carddeck[n-1-i] = tmp;
             }
 
-            for(i = 51; i >= 0; i--){
+            for(i = n-1; i >= 0; i--){
                 this.cards[carddeck[i]].ind = carddeck[i];
                 this.cards[carddeck[i]].adjustPos();
             }
@@ -49,7 +53,7 @@ function(Card,  $,         layout){
                 players[curI % 4].row.addCard(cards[carddeck[curI]]);
                 players[curI % 4].row.adjustPos();
                 curI++;
-                setTimeout(move, 10);
+                setTimeout(move, 100);
             }
             setTimeout(function(){move();}, 300);
             return d;

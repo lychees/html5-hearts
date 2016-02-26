@@ -623,6 +623,11 @@ td[contentEditable]{
 	box-shadow:none;
 }
 
+
+.card .lv img{
+	height: 32px;
+}
+/*
 .card.heart .front, .card.heart .icon{
 	background-image:url('img/heart.png');
 }
@@ -638,6 +643,8 @@ td[contentEditable]{
 .card.diamond .front, .card.diamond .icon{
 	background-image:url('img/diamond.png');
 }
+*/
+
 
 .card .icon{
 	background-size:contain;
