@@ -59,6 +59,12 @@ td[contentEditable]{
 	user-select: text;
 }
 
+.heap{
+	position: absolute;
+	right: 128px;
+	bottom: 128px;
+}
+
 #control-region{
 	display: block;
 	position: absolute;

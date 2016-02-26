@@ -14,6 +14,10 @@ function(domBinding){
             this.suit = 0;
             this.num = id;
         }
+        else if (id == '#'){
+            this.suit = 0;
+            this.num = '▲';
+        }
 
 
 //        this.id = id;

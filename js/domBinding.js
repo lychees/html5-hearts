@@ -2,7 +2,8 @@ define(function(){
 
     var suits = ['spade', 'heart', 'club', 'diamond'];
 
-    var frag;
+    var heap, board;
+
 
     var CardDisplay = function(dom){
         this.dom = $(dom);
@@ -12,9 +13,11 @@ define(function(){
     };
 
     CardDisplay.prototype.adjustPos = function(pos){
-
+        console.log(pos);
         this.dom.css({
             zIndex: 10 + pos.z,
+            //positionX: pos.x,
+            //positionY: pos.y,
             //transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px) rotateY(' + pos.rotateY + 'deg)'
             transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px)'
         });
@@ -34,6 +37,7 @@ define(function(){
 
 
     var PlayerDisplay = function(id, name, human){
+
         this.id = id;
         this.display = document.createElement('div');
         this.display.className = 'info-board board-' + id;
@@ -51,7 +55,7 @@ define(function(){
         this.display.appendChild(this.scoretext);
         this.display.appendChild(this.finaltext);
 
-        frag.appendChild(this.display);
+        board.appendChild(this.display);
 
         this.rank = null;
     };
@@ -117,9 +121,10 @@ define(function(){
 
     return {
         fragmentToDom: function(dom){
-            if(frag){
-                dom.appendChild(frag);
-                frag = null;
+            if(board){
+                dom.appendChild(board);
+                board.appendChild(heap);
+                board = null;
             }
         },
         createPlayerDisplay: function(id, name){
@@ -132,13 +137,23 @@ define(function(){
 
 
         createCardDisplay: function(numtext, suit){
-            if(!frag){
-                frag = document.createDocumentFragment();
+            if(!heap){
+                //frag = document.createDocumentFragment();
+                heap = document.createElement('div');
+                heap.className = 'heap';
             }
+
+            if(!board){
+                //frag = document.createDocumentFragment();
+                board = document.createElement('div');
+                board.className = 'board';
+            }
+
             var display = document.createElement('div');
             display.className = 'card';
-            /*$(display).css({
-                transform: 'rotateY(180deg)'
+/*            $(display).css({
+                  transform: 'rotateY(30deg)',
+                  transform: 'translate3d: (' + 100 + 'px, ' + 100 + 'px, ' + 1 + 'px)'
             });*/
 
             var numText = document.createElement('div');
@@ -168,9 +183,10 @@ define(function(){
 
             display.appendChild(back);
 
-            frag.appendChild(display);
-
-            return new CardDisplay(display);
+            board.appendChild(display);
+            var z = new CardDisplay(display);
+//            z.adjustPos({x: 100, y:100, z:100});
+            return z;
         }
     };
 });

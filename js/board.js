@@ -8,6 +8,8 @@ function(Card,  $,         layout){
         cards.push(new Card('+'+i));
         cards.push(new Card('-'+i));
     }
+    cards.push(new Card('#'));
+    cards.push(new Card('#'));
     
     var carddeck = [];
     for(i = 0; i < cards.length; i++) {
@@ -37,10 +39,21 @@ function(Card,  $,         layout){
 
             for(i = n-1; i >= 0; i--){
                 this.cards[carddeck[i]].ind = carddeck[i];
-                this.cards[carddeck[i]].adjustPos();
+                //this.cards[carddeck[i]].adjustPos();
+                console.log($('div.heap').offset().top);
+                this.cards[carddeck[i]].display.adjustPos({
+                    x: $('div.heap').offset().left - 100,
+                    y: $('div.heap').offset().top - 50,
+                    rotation: 0,
+                    rotateY: 0,
+                    z:-i
+                });
+                this.cards[carddeck[i]].display.dom.addClass('heap');
+
             }
         },
         distribute: function(players){
+          //  return;
             var curI = 0;
             var d = $.Deferred();
             function move(){
@@ -50,6 +63,12 @@ function(Card,  $,         layout){
                     }, 200);
                     return;
                 }
+                //var t =
+                //cards[carddeck[curI]].display.dom;
+                //this.cards[carddeck[i]].display.dom.removeClass('heap');
+                //console.log(cards[carddeck[curI]].display.dom.remove);
+                //t.parentNode.removeChild(t);
+
                 players[curI % 4].row.addCard(cards[carddeck[curI]]);
                 players[curI % 4].row.adjustPos();
                 curI++;
