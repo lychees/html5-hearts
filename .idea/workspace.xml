@@ -6,7 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/board.js" afterPath="$PROJECT_DIR$/js/board.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/domBinding.js" afterPath="$PROJECT_DIR$/js/domBinding.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="html5-hearts.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +49,8 @@
       <file leaf-file-name="board.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7058824">
-              <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.15358362">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -60,8 +59,8 @@
       <file leaf-file-name="domBinding.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/domBinding.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.333333">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+            <state vertical-scroll-proportion="-4.4444447">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,8 +79,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+            <state vertical-scroll-proportion="-8.692307">
+              <caret line="621" column="17" selection-start-line="621" selection-start-column="17" selection-end-line="621" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -90,8 +89,8 @@
       <file leaf-file-name="Card.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Card.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.740741">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="14" />
+            <state vertical-scroll-proportion="-18.333334">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -112,9 +111,9 @@
       <list>
         <option value="$PROJECT_DIR$/js/game.js" />
         <option value="$PROJECT_DIR$/js/game_old.js" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/js/Card.js" />
         <option value="$PROJECT_DIR$/js/domBinding.js" />
+        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/js/board.js" />
       </list>
     </option>
@@ -465,14 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.962963">
-          <caret line="143" column="62" selection-start-line="143" selection-start-column="62" selection-end-line="143" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -481,18 +472,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Card.js">
+    <entry file="file://$PROJECT_DIR$/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.740741">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="14" />
+        <state vertical-scroll-proportion="-13.962963">
+          <caret line="143" column="62" selection-start-line="143" selection-start-column="62" selection-end-line="143" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/domBinding.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.333333">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        <state vertical-scroll-proportion="-4.4444447">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -507,16 +498,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+        <state vertical-scroll-proportion="-8.692307">
+          <caret line="621" column="17" selection-start-line="621" selection-start-column="17" selection-end-line="621" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Card.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.333334">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7058824">
-          <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.15358362">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
         </state>
       </provider>

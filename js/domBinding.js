@@ -1,6 +1,8 @@
 define(function(){
 
-    var suits = ['spade', 'heart', 'club', 'diamond'];
+    //var suits = ['spade', 'heart', 'club', 'diamond'];
+
+    var suits = ['black', 'red', 'yellow', 'green', 'blue'];
 
     var heap, board;
 

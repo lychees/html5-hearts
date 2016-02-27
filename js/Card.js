@@ -7,7 +7,7 @@ function(domBinding){
     var Card = function(id){
 
         if (id[0] == '+'){
-            this.suit = 1;
+            this.suit = 0;
             this.num = id;
         }
         else if (id[0] == '-'){
@@ -17,6 +17,22 @@ function(domBinding){
         else if (id == '#'){
             this.suit = 0;
             this.num = '▲';
+        }
+        else if (id[0] == 'A'){
+            this.suit = 1;
+            this.num = id;
+        }
+        else if (id[0] == 'B'){
+            this.suit = 2;
+            this.num = id;
+        }
+        else if (id[0] == 'C'){
+            this.suit = 3;
+            this.num = id;
+        }
+        else if (id[0] == 'D'){
+            this.suit = 4;
+            this.num = id;
         }
 
 

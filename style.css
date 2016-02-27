@@ -612,6 +612,21 @@ td[contentEditable]{
 	color:red;
 }
 
+.card.red{
+	color:red;
+}
+.card.blue{
+	color:blue;
+}
+.card.yellow{
+	color:#aaaa00;
+}
+.card.green{
+	color:green;
+}
+
+
+
 .card.noShadow .front, .card.noShadow .back{
 	box-shadow:none;
 	border:1px solid #777777;
