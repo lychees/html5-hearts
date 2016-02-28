@@ -54,8 +54,8 @@ function(layout){
 
     Row.prototype.sort = function(){
         this.cards.sort(function(a, b){
-            if(a.suit != b.suit) return b.suit - a.suit;
-            return a.num - b.num;
+            if (a.num[0] != b.num[0]) return a.num[0] < b.num[0];
+            return a.num > b.num;
         }).forEach(function(v, ind){
             v.ind = ind;
         });

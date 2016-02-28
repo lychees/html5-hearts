@@ -61,8 +61,8 @@ td[contentEditable]{
 
 .heap{
 	position: absolute;
-	right: 128px;
-	bottom: 128px;
+	right: 64px;
+	bottom: 64px;
 }
 
 #control-region{
@@ -548,13 +548,37 @@ td[contentEditable]{
 	background-color: red;
 }
 
+
+.board{
+	position: absolute;
+	margin-left: -192px;
+	margin-top: -150px;
+	top: 50%;
+	left: 50%;
+}
+
+.row{
+	width: 2000px;
+	height: 66px;
+}
+
+.grid{
+	border-radius: 4px;
+	border: 1px solid #404040;
+	float: left;
+	position: relative;
+	background-color: #f0d9b5;
+	width: 64px;
+	height: 64px;
+}
+
 .card>.front, .card>.back{
 	border-radius: 8px;
 	position:absolute;
 	top:0;
 	left:0;
-	width: 128px;
-	height: 128px;
+	width: 64px;
+	height: 64px;
 	background-color:white;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
@@ -564,8 +588,8 @@ td[contentEditable]{
 }
 
 .card{
-	width:128px;
-	height:128px;
+	width:64px;
+	height:64px;
 	border-radius:8px;
 	position:absolute;
 	margin-left: -42px;

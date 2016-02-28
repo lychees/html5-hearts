@@ -4,7 +4,7 @@ define(function(){
 
     var suits = ['black', 'red', 'yellow', 'green', 'blue'];
 
-    var heap, board;
+    var frag, heap, board;
 
 
     var CardDisplay = function(dom){
@@ -57,7 +57,7 @@ define(function(){
         this.display.appendChild(this.scoretext);
         this.display.appendChild(this.finaltext);
 
-        board.appendChild(this.display);
+        frag.appendChild(this.display);
 
         this.rank = null;
     };
@@ -125,10 +125,12 @@ define(function(){
         fragmentToDom: function(dom){
             if(board){
                 dom.appendChild(board);
-                board.appendChild(heap);
+                dom.appendChild(frag);
+                dom.appendChild(heap);
                 board = null;
             }
         },
+
         createPlayerDisplay: function(id, name){
             return new PlayerDisplay(id, name);
         },
@@ -139,8 +141,9 @@ define(function(){
 
 
         createCardDisplay: function(numtext, suit){
-            if(!heap){
-                //frag = document.createDocumentFragment();
+
+            if(!frag){
+                frag = document.createDocumentFragment();
                 heap = document.createElement('div');
                 heap.className = 'heap';
             }
@@ -149,6 +152,18 @@ define(function(){
                 //frag = document.createDocumentFragment();
                 board = document.createElement('div');
                 board.className = 'board';
+
+                for (var i=0;i<5;i++){
+                    var row = document.createElement('div');
+                    row.className = "row";
+                    for (var j=0;j<6;++j){
+                        var t = document.createElement('div');
+                        t.className = "grid";
+                        row.appendChild(t);
+                    }
+                    board.appendChild(row);
+                }
+
             }
 
             var display = document.createElement('div');
@@ -176,7 +191,6 @@ define(function(){
                 t.src = "img/club.png";
                 lv.appendChild(t);
             }
-
             front.appendChild(lv);*/
             display.appendChild(front);
 
@@ -185,7 +199,7 @@ define(function(){
 
             display.appendChild(back);
 
-            board.appendChild(display);
+            frag.appendChild(display);
             var z = new CardDisplay(display);
 //            z.adjustPos({x: 100, y:100, z:100});
             return z;
