@@ -108,10 +108,11 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
             } else {
                 status = ({
                     'prepare': 'distribute',
-                    'distribute': 'start',
+                    'distribute': 'playing',
+                    /*'distribute': 'start',
                     'start': 'passing',
                     'passing': 'confirming',
-                    'confirming': 'playing',
+                    'confirming': 'playing',*/
                     'playing': 'playing',
                     'endRound': 'playing',
                     'end': 'prepare'
