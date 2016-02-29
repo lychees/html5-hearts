@@ -11,6 +11,8 @@ function(Row ,  Waste,   domBinding){
         this.display = domBinding.createPlayerDisplay(id, name);
         this.brain = null;
         this.selected = null;
+        this.card = null;
+        this.pos = null;
 
         Object.seal(this);
     };

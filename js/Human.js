@@ -2,6 +2,8 @@ define(["Player", "jquery", "ui"],
 function(Player,  $,         ui){
     "use strict";
 
+
+
     var Human = function(id, name){
         Player.call(this, id, name);
         this.row.flipped = false;
@@ -16,22 +18,38 @@ function(Player,  $,         ui){
     };
 
     Human.prototype.decide = function(validCards){
+
+        this.card = null;
+
         validCards.forEach(function(c){
             c.display.setSelectable(true);
         });
-        /*if(validCards.length === 1 && validCards[0].id === 26){
-            ui.showMessage('Please start with 2 of Clubs.');
-        }*/
+
         var d = $.Deferred();
         var row = this.row;
-        ui.buttonClickOnce(function(){
+        /*ui.buttonClickOnce(function(){
             ui.hideMessage();
             ui.hideButton();
             validCards.forEach(function(c){
                 c.display.setSelectable(false);
             });
             d.resolve(row.getSelected()[0]);
+        });*/
+
+        ui.activateGrids(function(i, j){
+            validCards.forEach(function(c){
+                c.display.setSelectable(false);
+            });
+            //d.resolve(row.getSelected()[0], i, j);
+            //let ii = i, jj = j;
+            //d.resolve(row.getSelected()[0], i, j);
+            d.resolve({
+                card: row.getSelected()[0],
+                i: i,
+                j: j
+            });
         });
+
         return d;
     };
 
@@ -83,7 +101,9 @@ function(Player,  $,         ui){
             //ui.showArrow();
         } else {
             //ui.showButton("Go!");
-            ui.activateGrids();
+            //ui.activateGrids(this.row.getSelected()[0]);
+            //ui.activateGrids();
+            this.card = this.row.getSelected()[0];
         }
     };
 

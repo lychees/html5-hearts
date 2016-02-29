@@ -14,7 +14,9 @@ define(function(){
     arrow.id = 'pass-arrow';
     endMessage.id = "end-message";
 
-    document.body.appendChild(board);
+    //document.body.appendChild(board);
+    //$('#game-region').dom.addChild(board);
+    document.getElementById("game-region").appendChild(board);
     board.className = 'board';
 
     for (var i=0;i<5;i++){
@@ -41,7 +43,9 @@ define(function(){
 
     return {
 
-        activateGrids: function(){
+        activateGrids: function(cb){
+
+            var d = $.Deferred();
 
             for (let i=0;i<5;++i){
                 //for (var t in grids[i]){
@@ -49,13 +53,10 @@ define(function(){
                     //var t = grids[i][j];
                     $(grids[i][j]).on("click", function(){
                         alert("i: " + i + " j:" + j);
-                        //alert(i);
-                        //console.log(this);
                         $(this).off("click");
+                        cb(i, j);
+                        //alert(card.num);
                     });
-
-
-
                 }
             }
         },

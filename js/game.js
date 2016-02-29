@@ -181,7 +181,19 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
                         players.map(function(p){
                             return p.getScore();
                         })), waitDefer(200))
-                    .done(function(card){
+                    .done(function(data){
+
+                            if (data.card == null){
+                                data.card = data;
+                                data.i = 0,
+                                    data. j = 0;
+                            }
+
+                            var card = data.card;
+                            alert(card.num);
+                            alert("i: " + data.i + " j:" + data.j);
+                            //console.log(card);
+
                         players[currentPlay].setActive(false);
                         card.parent.out(card);
                         board.desk.addCard(card, players[currentPlay]);
