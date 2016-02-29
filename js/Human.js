@@ -1,5 +1,5 @@
-define(["Player", "jquery", "ui"],
-function(Player,  $,         ui){
+define(["Player", "config", "jquery", "ui"],
+function(Player,  config, $,         ui){
     "use strict";
 
 
@@ -43,12 +43,20 @@ function(Player,  $,         ui){
             //d.resolve(row.getSelected()[0], i, j);
             //let ii = i, jj = j;
             //d.resolve(row.getSelected()[0], i, j);
+
+            var card;
+            if (row.getSelected()[0] != null) card = row.getSelected()[0];
+            else card = config.newCard;
+
             d.resolve({
-                card: row.getSelected()[0],
+                card: card,
                 i: i,
                 j: j
             });
         });
+
+
+
 
         return d;
     };

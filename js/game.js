@@ -93,7 +93,7 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
             this.proceed();
         },
         next: function(){
-            console.log(status, "next");
+            //console.log(status, "next");
             if (status == 'confirming'){
                 currentPlay = 0; //board.cards[26].parent.playedBy.id;
                 played = 0;
@@ -204,16 +204,17 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
                                 data.j = Qy[p];
                             }
 
+
+
                             var card = data.card;
                             var i = data.i;
                             var j = data.j;
-                            //alert(card.num);
-                            //alert("i: " + data.i + " j:" + data.j);
-                            //console.log(card);
+
+                        //alert(card);
 
 
                         players[currentPlay].setActive(false);
-                        card.parent.out(card);
+                        if (card.parent !== null) card.parent.out(card);
                         //board.desk.addCard(card, players[currentPlay]);
 
 
@@ -223,7 +224,8 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
                                 z: 10,
                                 rotation: 0,
                                 x: -147 + j*65,
-                                y: -82 + i*65
+                                y: -82 + i*65,
+                                rotateY: 0
                             };
 
                         card.adjustPos(true);

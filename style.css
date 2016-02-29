@@ -61,6 +61,8 @@ td[contentEditable]{
 
 .heap{
 	position: absolute;
+	height: 64px;
+	width: 64px;
 	right: 64px;
 	bottom: 64px;
 }

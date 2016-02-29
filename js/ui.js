@@ -52,7 +52,7 @@ define(function(){
                 for (let j=0;j<6;++j){
                     //var t = grids[i][j];
                     $(grids[i][j]).on("click", function(){
-                        alert("i: " + i + " j:" + j);
+                        //alert("i: " + i + " j:" + j);
                         $(this).off("click");
                         cb(i, j);
                         //alert(card.num);

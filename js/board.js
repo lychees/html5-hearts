@@ -1,7 +1,9 @@
-define(["Card", "jquery", "layout"],
-function(Card,  $,         layout){
+define(["Card", "config", "jquery", "layout"],
+function(Card,  config, $,         layout){
 
     var cards = [];
+
+    var newCard;
 
     for (var i=0;i<4;++i) {
         var c = String.fromCharCode(65+i);
@@ -27,6 +29,7 @@ function(Card,  $,         layout){
 
     return {
         cards: cards,
+        newCard: newCard,
         init: function(){
             this.desk.cards.length = 0;
             this.desk.players.length = 0;
@@ -51,13 +54,13 @@ function(Card,  $,         layout){
                 //this.cards[carddeck[i]].adjustPos();
                 //console.log($('div.heap').offset().top);
                 this.cards[carddeck[i]].display.adjustPos({
-                    x: $('div.heap').offset().left - 100,
-                    y: $('div.heap').offset().top - 50,
+                    x: $('div.heap').offset().left/2 - 100,
+                    y: $('div.heap').offset().top/2 - 50,
                     rotation: 0,
-                    rotateY: 0,
+                    rotateY: 180,
                     z:-i
                 });
-                this.cards[carddeck[i]].display.dom.addClass('heap');
+                //this.cards[carddeck[i]].display.dom.addClass('heap');
             }
         },
         distribute: function(players){
@@ -95,6 +98,17 @@ function(Card,  $,         layout){
                     players[o].row.addCard(t);
                     players[o].row.adjustPos();
                 }
+                else{
+
+                    $(t.display.dom).on("click", function(){
+                        //board.newCard = this;
+                        config.setNewCard(this);
+                        $(this).off("click");
+                    });
+
+                    //console.log(t.display.dom);
+
+                }
                 curI++;
                 setTimeout(move, 10);
             }
@@ -106,7 +120,7 @@ function(Card,  $,         layout){
                 x: (52 - ind) / 4,
                 y: (52 - ind) / 4,
                 z: -i,
-                rotateY: 180
+                rotateY: 0
             };
         },
         desk: {

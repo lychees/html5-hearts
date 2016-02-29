@@ -15,13 +15,13 @@ define(function(){
     };
 
     CardDisplay.prototype.adjustPos = function(pos){
-        //console.log(pos);
+        //rotateY.log(pos);
         this.dom.css({
             zIndex: 10 + pos.z,
             //positionX: pos.x,
             //positionY: pos.y,
-            //transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px) rotateY(' + pos.rotateY + 'deg)'
-            transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px)'
+            transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px) rotateY(' + pos.rotateY + 'deg)'
+            //transform: 'rotate(' + pos.rotation + 'deg) translate3d(' + pos.x + 'px, ' + pos.y + 'px, ' + pos.z + 'px)'
         });
     };
 

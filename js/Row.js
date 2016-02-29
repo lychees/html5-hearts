@@ -43,7 +43,7 @@ function(layout){
             x: this.left + ind * layout.cardSep,
             y: this.distance,
             rotation: this.rotation,
-            rotateY: this.flipped ? 180 : 0,
+            rotateY: 0, //this.flipped ? 180 : 0,
             z: ind
         };
         if(this.curShifted.indexOf(this.cards[ind]) > -1){
