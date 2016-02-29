@@ -22,6 +22,9 @@ function(Row ,  Waste,   domBinding){
     };
 
     Player.prototype.adjustPos = function(){
+
+
+
         this.row.adjustPos();
         this.waste.adjustPos();
         this.display.adjustPos();

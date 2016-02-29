@@ -2,6 +2,7 @@ define(["ui", "Human", "Ai", "board", "config", "jquery", "rules", "RandomBrain"
 function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,   AsyncBrain,   SimpleBrain,   PomDPBrain){
     "use strict";
 
+
     var rounds = 0;
     var players = [
         new Human(0, config.names[0]),
@@ -179,33 +180,62 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
                         board.desk.cards,
                         board.desk.players,
                         players.map(function(p){
-                            return p.getScore();
+                            //return p.getScore();
                         })), waitDefer(200))
                     .done(function(data){
 
                             if (data.card == null){
                                 data.card = data;
-                                data.i = 0,
-                                    data. j = 0;
+
+                                var Qx = [];
+                                var Qy = [];
+
+                                for (var i=0;i<config.board.length;++i){
+                                    for (var j=0;j<config.board[i].length;++j) if (config.board[i][j] === ''){
+                                        Qx.push(i);
+                                        Qy.push(j);
+                                    }
+                                }
+
+                                var p = parseInt(Math.random() * Qx.length);
+
+
+                                data.i = Qx[p],
+                                data.j = Qy[p];
                             }
 
                             var card = data.card;
-                            alert(card.num);
-                            alert("i: " + data.i + " j:" + data.j);
+                            var i = data.i;
+                            var j = data.j;
+                            //alert(card.num);
+                            //alert("i: " + data.i + " j:" + data.j);
                             //console.log(card);
+
 
                         players[currentPlay].setActive(false);
                         card.parent.out(card);
-                        board.desk.addCard(card, players[currentPlay]);
-                        card.adjustPos();
-                        informCardOut(players[currentPlay], card);
+                        //board.desk.addCard(card, players[currentPlay]);
+
+
+                        config.board[i][j] = card.num;
+
+                            card.pos = {
+                                z: 10,
+                                rotation: 0,
+                                x: -147 + j*65,
+                                y: -82 + i*65
+                            };
+
+                        card.adjustPos(true);
+                        //informCardOut(players[currentPlay], card);
                         this.next();
+
                     }.bind(this));
                 },
                 'endRound': function(){
-                    var info = board.desk.score();
-                    currentPlay = info[0].id;
-                    info[0].waste.addCards(info[1]);
+                    //var info = board.desk.score();
+                    //currentPlay = info[0].id;
+                    //info[0].waste.addCards(info[1]);
                     this.next();
                 },
                 'end': function(){
