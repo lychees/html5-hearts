@@ -145,6 +145,7 @@ function(ui,   Human,   Ai,   board,   config,   $,        rules,   RandomBrain,
                     board.distribute(players).done(function(){
                         players.forEach(function(p){
                             p.row.sort();
+                            p.row.maxShift = 1;
                         });
                         self.next();
                     });

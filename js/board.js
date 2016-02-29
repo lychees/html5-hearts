@@ -96,7 +96,7 @@ function(Card,  $,         layout){
                     players[o].row.adjustPos();
                 }
                 curI++;
-                setTimeout(move, 100);
+                setTimeout(move, 10);
             }
             setTimeout(function(){move();}, 300);
             return d;

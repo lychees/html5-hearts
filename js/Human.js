@@ -19,9 +19,9 @@ function(Player,  $,         ui){
         validCards.forEach(function(c){
             c.display.setSelectable(true);
         });
-        if(validCards.length === 1 && validCards[0].id === 26){
+        /*if(validCards.length === 1 && validCards[0].id === 26){
             ui.showMessage('Please start with 2 of Clubs.');
-        }
+        }*/
         var d = $.Deferred();
         var row = this.row;
         ui.buttonClickOnce(function(){
@@ -80,13 +80,17 @@ function(Player,  $,         ui){
 
     Human.prototype.rowSelected = function(){
         if(this.row.maxShift === 3){
-            ui.showArrow();
+            //ui.showArrow();
         } else {
-            ui.showButton("Go!");
+            //ui.showButton("Go!");
+            ui.activateGrids();
         }
     };
 
     Human.prototype.rowDeselected = function(){
+
+        ui.clearEvents();
+
         if(this.row.maxShift === 3){
             ui.hideArrow();
         } else {

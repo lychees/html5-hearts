@@ -15,7 +15,7 @@ define(function(){
     };
 
     CardDisplay.prototype.adjustPos = function(pos){
-        console.log(pos);
+        //console.log(pos);
         this.dom.css({
             zIndex: 10 + pos.z,
             //positionX: pos.x,
@@ -123,11 +123,11 @@ define(function(){
 
     return {
         fragmentToDom: function(dom){
-            if(board){
-                dom.appendChild(board);
+            if(heap){
+
                 dom.appendChild(frag);
                 dom.appendChild(heap);
-                board = null;
+
             }
         },
 
@@ -148,23 +148,6 @@ define(function(){
                 heap.className = 'heap';
             }
 
-            if(!board){
-                //frag = document.createDocumentFragment();
-                board = document.createElement('div');
-                board.className = 'board';
-
-                for (var i=0;i<5;i++){
-                    var row = document.createElement('div');
-                    row.className = "row";
-                    for (var j=0;j<6;++j){
-                        var t = document.createElement('div');
-                        t.className = "grid";
-                        row.appendChild(t);
-                    }
-                    board.appendChild(row);
-                }
-
-            }
 
             var display = document.createElement('div');
             display.className = 'card';

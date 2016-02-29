@@ -572,6 +572,18 @@ td[contentEditable]{
 	height: 64px;
 }
 
+.grid.empty{
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+
+
+.grid.empty:hover{
+	box-shadow:0 0 20px 5px lightblue;
+}
+
+
+
 .card>.front, .card>.back{
 	border-radius: 8px;
 	position:absolute;

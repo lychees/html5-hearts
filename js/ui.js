@@ -4,7 +4,9 @@ define(function(){
     var arrow = document.createElement('div'),
         button = document.createElement('button'),
         message = document.createElement('div'),
-        endMessage = document.createElement("div");
+        endMessage = document.createElement("div"),
+        board = document.createElement("div"),
+        grids = [];
 
     button.id = 'play-button';
     message.id = 'game-message';
@@ -12,15 +14,60 @@ define(function(){
     arrow.id = 'pass-arrow';
     endMessage.id = "end-message";
 
+    document.body.appendChild(board);
+    board.className = 'board';
+
+    for (var i=0;i<5;i++){
+        var row = document.createElement('div');
+        row.className = "row";
+        grids[i] = [];
+        for (var j=0;j<6;++j){
+            /*var t = document.createElement('div');
+            t.className = "grid empty";
+            row.appendChild(t);
+            grids[i][j] = t;*/
+            grids[i][j] = document.createElement('div');
+            grids[i][j].className = "grid empty";
+            row.appendChild(grids[i][j]);
+        }
+        board.appendChild(row);
+    }
+
     document.body.appendChild(arrow);
     document.body.appendChild(button);
     document.body.appendChild(message);
     document.body.appendChild(endMessage);
 
+
     return {
+
+        activateGrids: function(){
+
+            for (let i=0;i<5;++i){
+                //for (var t in grids[i]){
+                for (let j=0;j<6;++j){
+                    //var t = grids[i][j];
+                    $(grids[i][j]).on("click", function(){
+                        alert("i: " + i + " j:" + j);
+                        //alert(i);
+                        //console.log(this);
+                        $(this).off("click");
+                    });
+
+
+
+                }
+            }
+        },
+
         clearEvents: function(){
             $(button).off("click");
             $(arrow).off("click");
+            for (let i=0;i<5;++i){
+                for (let j=0;j<6;++j){
+                    $(grids[i][j]).off("click");
+                }
+            }
         },
         showArrow: function(){
             arrow.classList.add('show');

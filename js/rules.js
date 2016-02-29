@@ -3,6 +3,9 @@ define(function(){
 
     return {
         getValidCards: function(cards, firstSuit, isHeartBroken){
+
+            return cards;
+
             if(firstSuit == -1){
                 if(isHeartBroken){
                     return cards;
